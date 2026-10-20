@@ -1,0 +1,122 @@
+{{!
+    @template local_coursefiles/view
+    Find files, choose an export, and manage course permissions separately.
+}}
+<h2>{{#str}}linkname,local_coursefiles{{/str}}</h2>
+<p>{{#str}}downloadsintro,local_coursefiles{{/str}}</p>
+{{#canmanage}}
+<div class="local-coursefiles-management mb-4">
+    <p class="small mb-1"><strong>{{visibilitystatus}}</strong></p>
+    <details {{#settingsopen}}open{{/settingsopen}}>
+        <summary class="btn btn-link p-0 mb-2"><span class="fa fa-chevron-right local-coursefiles-settings-chevron me-1 mr-1" aria-hidden="true"></span>{{#str}}managesettings,local_coursefiles{{/str}}</summary>
+        <div class="border rounded p-3 mt-2">
+<form action="{{url}}" method="post" class="local_coursefiles_settings_form mb-4">
+    <input name="sesskey" type="hidden" value="{{sesskey}}">
+    <input name="action" type="hidden" value="savesettings">
+    <div class="d-flex align-items-center mb-3">
+        <div class="form-check mb-0">
+            <input class="form-check-input" type="checkbox" name="hidestudents" value="1" id="hidestudents" {{#hidestudents}}checked{{/hidestudents}}>
+            <label class="form-check-label" for="hidestudents">{{#str}}hidestudents,local_coursefiles{{/str}}</label>
+        </div>
+        {{{visibilityhelp}}}
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <label for="allowedfiletypes">{{#str}}allowedfiletypes,local_coursefiles{{/str}}</label>
+                {{{typeshelp}}}
+            </div>
+            <select id="allowedfiletypes" name="allowedfiletypes[]" multiple size="7" class="form-select custom-select w-100">
+                {{#typeoptions}}<option value="{{value}}" {{#selected}}selected{{/selected}}>{{label}}</option>{{/typeoptions}}
+            </select>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="d-flex align-items-center"><h3 class="h5 mb-0">{{#str}}exception_lists,local_coursefiles{{/str}}</h3>{{{exceptionshelp}}}</div>
+            <label for="whitelist_ext" class="mt-2">{{#str}}whitelist_desc,local_coursefiles{{/str}}</label>
+            <input type="text" id="whitelist_ext" name="whitelist_ext" value="{{whitelist_ext}}" class="form-control" autocomplete="off" maxlength="3300" aria-describedby="extensions-format">
+            <label for="blacklist_ext" class="mt-2">{{#str}}blacklist_desc,local_coursefiles{{/str}}</label>
+            <input type="text" id="blacklist_ext" name="blacklist_ext" value="{{blacklist_ext}}" class="form-control" autocomplete="off" maxlength="3300" aria-describedby="extensions-format">
+            <p id="extensions-format" class="small text-muted">{{#str}}extensionsformat,local_coursefiles{{/str}}</p>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">{{#str}}savesettings,local_coursefiles{{/str}}</button>
+</form>
+{{#pdfworkspacehint}}
+<p class="small text-muted mb-0" data-coursefiles-pdfworkspace-hint>
+    <strong>{{#str}}pdfworkspacehinttitle,local_coursefiles{{/str}}</strong>
+    {{#str}}pdfworkspacehint,local_coursefiles{{/str}}
+    <a href="{{pdfworkspaceurl}}" target="_blank" rel="noopener noreferrer">{{#str}}pdfworkspacelink,local_coursefiles{{/str}}</a>
+</p>
+{{/pdfworkspacehint}}
+        </div>
+    </details>
+</div>
+{{/canmanage}}
+{{^showpage}}<div class="alert alert-info">{{#str}}hiddenforstudents,local_coursefiles{{/str}}</div>{{/showpage}}
+{{#showpage}}
+<div id="local-coursefiles-browser" class="local-coursefiles-downloads" data-search-bar-scope="coursefiles-downloads">
+    {{{filterbar}}}
+    <div class="local-plugin-search-bar-status small" role="status" aria-live="polite" data-search-bar-status></div>
+    <p class="small text-muted">{{#str}}filtersexplain,local_coursefiles{{/str}}</p>
+    <div data-search-bar-results>
+        <h3 class="h5" id="coursefiles-results-title">{{resultsummary}}</h3>
+        <p>{{#str}}filechoicehint,local_coursefiles{{/str}}</p>
+        <form action="{{posturl}}" method="post" id="filelist">
+            {{#filterparams}}<input type="hidden" name="{{name}}" value="{{value}}">{{/filterparams}}
+            <input name="sesskey" type="hidden" value="{{sesskey}}">
+            {{#files_exist}}
+    <div class="table-responsive">
+        <table class="local_coursefiles_table generaltable">
+            <caption class="sr-only visually-hidden">{{#str}}linkname,local_coursefiles{{/str}}</caption>
+            <thead><tr>
+                {{#download_allowed}}<th scope="col"><input type="checkbox" class="local_coursefiles_check_uncheck_all" aria-label="{{#str}}selectall,local_coursefiles{{/str}}"></th>{{/download_allowed}}
+                <th scope="col">{{#str}}filename,local_coursefiles{{/str}}</th>
+                <th scope="col">{{#str}}filesize,local_coursefiles{{/str}}</th>
+                <th scope="col">{{#str}}component,local_coursefiles{{/str}}</th>
+                <th scope="col">{{#str}}section,local_coursefiles{{/str}}</th>
+                <th scope="col">{{#str}}mimetype,local_coursefiles{{/str}}</th>
+            </tr></thead>
+            <tbody>{{#files}}<tr>
+                {{#download_allowed}}<td><input type="checkbox" class="local_coursefiles_file_checkbox" name="file[]" value="{{fileid}}" aria-label="{{selectlabel}}"></td>{{/download_allowed}}
+                <td>
+                    {{#canmanage}}{{#restrictedbypolicy}}<span class="text-muted" title="{{#str}}restrictedbypolicy,local_coursefiles{{/str}}"><i class="fa fa-eye-slash" aria-hidden="true"></i><span class="sr-only visually-hidden">{{#str}}restrictedbypolicy,local_coursefiles{{/str}}</span></span>{{/restrictedbypolicy}}{{/canmanage}}
+                    {{#fileurl}}<a href="{{fileurl}}">{{filename}}</a>{{/fileurl}}{{^fileurl}}{{filename}}{{/fileurl}}
+                </td>
+                <td>{{filesize}}</td>
+                <td>{{#filecomponenturl}}<a href="{{filecomponenturl}}">{{filecomponent}}</a>{{/filecomponenturl}}{{^filecomponenturl}}{{filecomponent}}{{/filecomponenturl}}</td>
+                <td>{{sectionname}}</td>
+                <td>{{filetype}}</td>
+            </tr>{{/files}}</tbody>
+        </table>
+    </div>
+
+            {{/files_exist}}
+            {{^files_exist}}<p>{{#str}}nothingfound,local_coursefiles{{/str}}</p>{{/files_exist}}
+            {{#download_allowed}}
+            <p class="small" role="status" aria-live="polite" hidden data-coursefiles-selection-count data-format="{{#str}}markedcount,local_coursefiles,__COUNT__{{/str}}">{{#str}}markedcount,local_coursefiles,0{{/str}}</p>
+            <button class="btn btn-primary" type="submit" name="action" value="download" hidden data-coursefiles-export data-coursefiles-file-download data-format="{{#str}}downloadmarkedcount,local_coursefiles,__COUNT__{{/str}}">{{#str}}downloadmarkedcount,local_coursefiles,0{{/str}}</button>
+            <noscript><button class="btn btn-primary" type="submit" name="action" value="download">{{#str}}downloadmarked,local_coursefiles{{/str}}</button></noscript>
+            {{/download_allowed}}
+        </form>
+        {{#download_allowed}}
+        <section class="border rounded p-3 mt-4" aria-labelledby="coursefiles-sections-title">
+            <div class="d-flex align-items-center mb-2">
+                <h3 class="h5 mb-0" id="coursefiles-sections-title">{{#str}}sectionexporttitle,local_coursefiles{{/str}}</h3>{{{sectionshelp}}}
+            </div>
+            <p class="mb-1">{{#str}}sectionexporthint,local_coursefiles{{/str}}</p>
+            <p class="small text-muted">{{#str}}sectionexportindependent,local_coursefiles{{/str}}</p>
+            <p><strong>{{exportsummary}}</strong></p>
+            {{^hassectionexport}}<p>{{#str}}noexportmatches,local_coursefiles{{/str}}</p>{{/hassectionexport}}
+            <form action="{{posturl}}" method="post">
+                {{#filterparams}}<input type="hidden" name="{{name}}" value="{{value}}">{{/filterparams}}
+                <input name="sesskey" type="hidden" value="{{sesskey}}">
+                <button class="btn btn-secondary" type="submit" name="action" value="downloadsections" data-coursefiles-export {{^hassectionexport}}disabled{{/hassectionexport}}>{{sectiondownloadlabel}}</button>
+            </form>
+        </section>
+        {{/download_allowed}}
+    </div>
+</div>
+{{/showpage}}
+{{#js}}
+require(['local_coursefiles/download_ui'], function(ui) { ui.init(); });
+{{/js}}

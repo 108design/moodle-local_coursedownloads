@@ -1,0 +1,14 @@
+{{!
+    @template local_coursefiles/settings_help_icon
+    Native Moodle information popover with a link to the matching settings-help topic.
+}}
+<button type="button" class="btn btn-link p-0 me-2 icon-no-margin help-icon text-info local-coursefiles-context-help-icon"
+{{^legacy}}data-bs-container="body" data-bs-toggle="popover" data-bs-custom-class="help-popover"
+    data-bs-placement="{{#ltr}}right{{/ltr}}{{^ltr}}left{{/ltr}}"
+    data-bs-content="{{text}} {{completedoclink}}" data-bs-html="true"
+{{/legacy}}{{#legacy}}data-container="body" data-toggle="popover"
+    data-placement="{{#ltr}}right{{/ltr}}{{^ltr}}left{{/ltr}}"
+    data-content="{{text}} {{completedoclink}}" data-html="true" data-trigger="focus"
+{{/legacy}}tabindex="0" aria-label="{{title}}">
+    {{#pix}}{{infoicon}}, core, {{{alt}}}{{/pix}}
+</button>

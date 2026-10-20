@@ -1,0 +1,29 @@
+/* Course Files-specific layout; shared filter styles are generated independently. */
+.local-coursefiles-downloads [hidden] { display: none !important; }
+.local-coursefiles-downloads .local-plugin-search-bar-fields { display: flex; flex-wrap: wrap; }
+.local-coursefiles-downloads .local-plugin-search-bar-fields > * { flex: 0 1 auto; min-width: 0; max-width: 100%; }
+.local-coursefiles-downloads .local-plugin-search-bar-field select { width: auto; min-width: 12rem; max-width: 100%; }
+.local-coursefiles-downloads .local-coursefiles-section-filter-field { width: max-content; min-width: min(18rem, calc(100cqw - 2rem)); }
+.local-coursefiles-downloads .local-plugin-search-bar-tags > summary {
+    width: 100%; max-width: 100%; gap: 1rem;
+    padding: 1.25rem .75rem .25rem;
+    border: 1px solid var(--bs-border-color, #8f959e); border-radius: .375rem;
+    background: var(--bs-body-bg, #fff);
+}
+.local-coursefiles-downloads .local-plugin-search-bar-tag-options {
+    inset-inline-start: 0; inset-inline-end: auto; width: max-content;
+    min-width: 100%; max-width: min(28rem, calc(100cqw - 2rem));
+}
+.local-coursefiles-downloads .local-plugin-search-bar-tag-options { text-align: start; }
+.local-coursefiles-downloads .local-plugin-search-bar-tag-options input { flex: none; margin-top: .2rem; }
+.local-coursefiles-downloads .local-plugin-search-bar-tags > summary { overflow-wrap: anywhere; }
+.local-coursefiles-management summary { text-align: start; white-space: normal; }
+.local-coursefiles-management summary::marker { content: ''; }
+.local-coursefiles-management summary::-webkit-details-marker { display: none; }
+
+.local-coursefiles-management details[open] .local-coursefiles-settings-chevron { transform: rotate(90deg); }
+
+@container (max-width: 40rem) {
+    .local-coursefiles-downloads .local-plugin-search-bar-fields > * { flex-basis: 100%; }
+    .local-coursefiles-downloads .local-plugin-search-bar-field select { width: 100%; }
+}
