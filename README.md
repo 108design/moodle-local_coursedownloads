@@ -77,6 +77,9 @@ Use the information icon in the top navigation for the page help. Consequential 
 link directly to their help topics.
 
 ## Changelog
+- Version 2026102005 — 4.0
+  - Stable release of the renewed Course Files for Moodle 4.5–5.3.
+  - Same functionality as 3.07.
 - Version 2026102004 — 3.07
   - Stable release for Moodle 4.5–5.3 with section downloads and optional PDF Workspace originals.
   - Discreet administrator guidance when PDF Workspace is not installed.
