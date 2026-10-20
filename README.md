@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/108design/moodle-local_coursedownloads/main/docs/branding/logo.svg" alt="Course Downloads" width="125" height="125">
+</p>
+
 # Course Downloads for Moodle
 
 A simple Moodle local plugin that allows students
@@ -98,6 +102,8 @@ Use the information icon in the top navigation for the page help. Consequential 
 link directly to their help topics.
 
 ## Changelog
+- Version 2026102007 — 4.0.2
+  - Added the Course Downloads product logo to headings, plugin administration and documentation.
 - Version 2026102006 — 4.0.1
   - Renamed to Course Downloads (local_coursedownloads).
   - Migrates existing Course Files course settings and permission overrides.

@@ -109,6 +109,7 @@ class renderer extends \plugin_renderer_base {
         $params = [];
         foreach ($this->filter_url($coursedownloads)->params() as $name => $value) { $params[] = ['name' => $name, 'value' => $value]; }
         return $this->render_from_template('local_coursedownloads/view', [
+            'productlogourl' => $this->output->image_url('adminbrand', 'local_coursedownloads')->out(false),
             'url' => $url->out(false), 'sesskey' => sesskey(), 'courseid' => $coursedownloads->get_course_id(),
             'posturl' => (new \moodle_url('/local/coursedownloads/index.php'))->out(false), 'filterparams' => $params,
             'filterbar' => $showpage ? $this->filters($coursedownloads, $filtertypes) : '',

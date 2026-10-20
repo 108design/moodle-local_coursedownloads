@@ -3,6 +3,10 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 defined('MOODLE_INTERNAL') || die();
 $callbacks = [
+    ['hook' => \core\hook\output\before_http_headers::class,
+        'callback' => [\local_coursedownloads\local\admin_branding::class, 'prepare']],
+    ['hook' => \core\hook\output\before_standard_head_html_generation::class,
+        'callback' => [\local_coursedownloads\local\admin_branding::class, 'head']],
     ['hook' => \core_course\hook\after_form_definition::class,
         'callback' => [\local_coursedownloads\course_hooks::class, 'definition']],
     ['hook' => \core_course\hook\after_form_submission::class,

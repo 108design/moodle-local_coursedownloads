@@ -27,3 +27,10 @@
     .local-coursedownloads-downloads .local-plugin-search-bar-fields > * { flex-basis: 100%; }
     .local-coursedownloads-downloads .local-plugin-search-bar-field select { width: 100%; }
 }
+
+.local-coursedownloads-product-logo {
+    width: 1em;
+    height: 1em;
+    margin-inline-end: .35em;
+    vertical-align: -.125em;
+}
