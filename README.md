@@ -5,9 +5,18 @@ and other course participants to view, filter and download
 the course files that are available to them.
 
 <details>
-<summary>Screenshot</summary>
+<summary>Screenshots</summary>
 
-![Course Files: combined filters, selected-file ZIP and separate section archives](https://raw.githubusercontent.com/108design/moodle-local_coursefiles/main/docs/screenshots/course-files.png)
+<table>
+<tr>
+<td width="50%" valign="top"><a href="https://raw.githubusercontent.com/108design/moodle-local_coursefiles/main/docs/screenshots/01-course-settings.jpg"><img src="https://raw.githubusercontent.com/108design/moodle-local_coursefiles/main/docs/screenshots/01-course-settings.jpg" alt="Course download permissions" width="100%"></a><br><strong>Course download permissions</strong><br>Choose download visibility, permitted file groups and extension rules in the course.</td>
+<td width="50%" valign="top"><a href="https://raw.githubusercontent.com/108design/moodle-local_coursefiles/main/docs/screenshots/02-filters-and-downloads.jpg"><img src="https://raw.githubusercontent.com/108design/moodle-local_coursefiles/main/docs/screenshots/02-filters-and-downloads.jpg" alt="Filtered materials and section archives" width="100%"></a><br><strong>Filtered materials and section archives</strong><br>Combine filters, select individual files or download separate section archives.</td>
+</tr>
+<tr>
+<td width="50%" valign="top"><a href="https://raw.githubusercontent.com/108design/moodle-local_coursefiles/main/docs/screenshots/03-admin-settings.jpg"><img src="https://raw.githubusercontent.com/108design/moodle-local_coursefiles/main/docs/screenshots/03-admin-settings.jpg" alt="Website defaults" width="100%"></a><br><strong>Website defaults</strong><br>Set the default permitted file groups in site administration.</td>
+<td width="50%"></td>
+</tr>
+</table>
 
 </details>
 
