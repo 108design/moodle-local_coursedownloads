@@ -17,9 +17,9 @@
 /**
  * Version info
  *
- * This File contains information about the current version of local/coursefiles
+ * This File contains information about the current version of local/coursedownloads
  *
- * @package    local_coursefiles
+ * @package    local_coursedownloads
  * @copyright  2025 Andreas Giesen <andreas@108design.com>
  * @copyright  based on work by 2022 Kacper Rokicki <k.k.rokicki@gmail.com>
  * @copyright  based on work by 2016 Martin Gauk (@innoCampus, TU Berlin)
@@ -28,9 +28,9 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->component = "local_coursefiles";
-$plugin->version   = 2026102005;
+$plugin->component = "local_coursedownloads";
+$plugin->version   = 2026102006;
 $plugin->requires  = 2024100700; // Moodle 4.5.
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = '4.0';
+$plugin->release   = '4.0.1';
 $plugin->supported = [405, 503];

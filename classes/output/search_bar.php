@@ -1,6 +1,6 @@
 <?php
 // Copyright (C) 2026 Andreas Giesen. SPDX-License-Identifier: GPL-3.0-or-later
-namespace local_coursefiles\output;
+namespace local_coursedownloads\output;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -10,8 +10,8 @@ final class search_bar {
     public static function controls(\moodle_url $base, array $fields, string $scope): string {
         $values = array_map(static fn(array $field) => $field['value'], $fields);
         $groups = ['search' => ['label' => get_string('search'), 'fields' => []],
-            'filter' => ['label' => get_string('searchbarfilters', 'local_coursefiles'), 'fields' => []],
-            'display' => ['label' => get_string('searchbardisplay', 'local_coursefiles'), 'fields' => []]];
+            'filter' => ['label' => get_string('searchbarfilters', 'local_coursedownloads'), 'fields' => []],
+            'display' => ['label' => get_string('searchbardisplay', 'local_coursedownloads'), 'fields' => []]];
         $active = false;
         foreach ($fields as $name => $field) {
             $id = $scope . '-' . $name;
@@ -53,7 +53,7 @@ final class search_bar {
                     . \html_writer::span('×', 'local-plugin-search-bar-chip-remove', ['aria-hidden' => 'true']),
                     ['class' => 'badge', 'style' => $style, 'data-search-bar-remove' => $name,
                         'data-search-bar-default' => $default,
-                        'aria-label' => get_string('searchbarremove', 'local_coursefiles', $label . ': ' . strip_tags((string)$text))]);
+                        'aria-label' => get_string('searchbarremove', 'local_coursedownloads', $label . ': ' . strip_tags((string)$text))]);
             }
             if (!empty($field['compact'])) {
                 $groups[$group]['compact'][] = self::field($control, $name, $chips, $label);
@@ -69,12 +69,12 @@ final class search_bar {
         }
         $actions = \html_writer::tag('button', get_string('search'), ['type' => 'submit',
             'class' => 'btn btn-secondary', 'data-search-bar-submit' => '1'])
-            . \html_writer::link($base, get_string('searchbarreset', 'local_coursefiles'),
+            . \html_writer::link($base, get_string('searchbarreset', 'local_coursedownloads'),
                 ['class' => 'btn btn-secondary', 'data-search-bar-reset' => '1', 'hidden' => $active ? null : 'hidden']);
         return self::render($groups, ['method' => 'get', 'action' => $base->out_omit_querystring(),
             'role' => 'search', 'data-search-bar' => '1', 'class' => 'local-plugin-search-bar-manager',
-            'data-search-bar-loading' => get_string('searchbarloading', 'local_coursefiles'),
-            'data-search-bar-error' => get_string('searchbarerror', 'local_coursefiles')], $actions, $hidden)
+            'data-search-bar-loading' => get_string('searchbarloading', 'local_coursedownloads'),
+            'data-search-bar-error' => get_string('searchbarerror', 'local_coursedownloads')], $actions, $hidden)
             . \html_writer::div('', 'local-plugin-search-bar-status small', ['data-search-bar-status' => '1',
                 'role' => 'status', 'aria-live' => 'polite']);
     }

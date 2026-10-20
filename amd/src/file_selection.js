@@ -4,10 +4,10 @@ export const init = () => {
     const form = document.getElementById('filelist');
     if (!form || form.dataset.selectionReady) return;
     form.dataset.selectionReady = '1';
-    const all = form.querySelector('.local_coursefiles_check_uncheck_all');
-    const boxes = [...form.querySelectorAll('.local_coursefiles_file_checkbox')];
-    const button = form.querySelector('[data-coursefiles-file-download]');
-    const counter = form.querySelector('[data-coursefiles-selection-count]');
+    const all = form.querySelector('.local_coursedownloads_check_uncheck_all');
+    const boxes = [...form.querySelectorAll('.local_coursedownloads_file_checkbox')];
+    const button = form.querySelector('[data-coursedownloads-file-download]');
+    const counter = form.querySelector('[data-coursedownloads-selection-count]');
     const refresh = () => {
         const count = boxes.filter(box => box.checked).length;
         if (all) { all.checked = boxes.length > 0 && count === boxes.length; all.indeterminate = count > 0 && count < boxes.length; }

@@ -2,7 +2,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $capabilities = array(
-    'local/coursefiles:view' => array(
+    'local/coursedownloads:view' => array(
+        'clonepermissionsfrom' => 'local/coursefiles:view',
         'riskbitmask' => RISK_PERSONAL,
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
@@ -13,7 +14,8 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         ),
     ),
-    'local/coursefiles:download' => array(
+    'local/coursedownloads:download' => array(
+        'clonepermissionsfrom' => 'local/coursefiles:download',
         'riskbitmask' => RISK_PERSONAL,
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
@@ -24,7 +26,8 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         ),
     ),
-    'local/coursefiles:manage' => array(
+    'local/coursedownloads:manage' => array(
+        'clonepermissionsfrom' => 'local/coursefiles:manage',
         'riskbitmask' => RISK_CONFIG,
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,

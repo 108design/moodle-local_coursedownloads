@@ -2,7 +2,7 @@
 // This file is part of Moodle - https://moodle.org/
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-namespace local_coursefiles;
+namespace local_coursedownloads;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -22,7 +22,7 @@ final class course_settings {
 
     /** Website defaults, independently of whether a course has been visited. */
     public static function defaults(): array {
-        $value = get_config('local_coursefiles', 'allowedfiletypes');
+        $value = get_config('local_coursedownloads', 'allowedfiletypes');
         $types = is_string($value) ? explode(',', $value) : [];
         return array_values(array_intersect(self::TYPES, $types)) ?: self::DEFAULT_TYPES;
     }
@@ -30,7 +30,7 @@ final class course_settings {
     /** Missing rows are never persisted by a read operation. */
     public static function get(int $courseid): \stdClass {
         global $DB;
-        $config = $DB->get_record('local_coursefiles_coursecfg', ['courseid' => $courseid]);
+        $config = $DB->get_record('local_coursedownloads_cfg', ['courseid' => $courseid]);
         if (!$config) {
             $config = (object)['courseid' => $courseid, 'filetypes' => implode(',', self::defaults()),
                 'hidestudents' => 1, 'whitelist_ext' => '', 'blacklist_ext' => ''];
@@ -52,14 +52,14 @@ final class course_settings {
             if (!preg_match('/\A[a-z0-9][a-z0-9_+\-]*\z/D', $extension)
                     || ($strict && strlen($extension) > 32)) {
                 if ($strict) {
-                    throw new \moodle_exception('invalidextensions', 'local_coursefiles');
+                    throw new \moodle_exception('invalidextensions', 'local_coursedownloads');
                 }
                 continue;
             }
             $extensions[$extension] = $extension;
         }
         if ($strict && count($extensions) > 100) {
-            throw new \moodle_exception('invalidextensions', 'local_coursefiles');
+            throw new \moodle_exception('invalidextensions', 'local_coursedownloads');
         }
         return array_values($extensions);
     }
@@ -67,28 +67,28 @@ final class course_settings {
     /** Explicit configuration writes require the native course management capability. */
     public static function save(int $courseid, array $types, bool $hidden, string $white, string $black): void {
         global $DB;
-        require_capability('local/coursefiles:manage', \context_course::instance($courseid));
+        require_capability('local/coursedownloads:manage', \context_course::instance($courseid));
         $config = self::get($courseid);
         $config->filetypes = implode(',', self::types($types));
         $config->hidestudents = (int)$hidden;
         $config->whitelist_ext = implode(',', self::extensions($white));
         $config->blacklist_ext = implode(',', self::extensions($black));
         if (!empty($config->id)) {
-            $DB->update_record('local_coursefiles_coursecfg', $config);
+            $DB->update_record('local_coursedownloads_cfg', $config);
         } else {
             // Serialize first saves, including submissions from separate browser tabs.
-            $factory = \core\lock\lock_config::get_lock_factory('local_coursefiles');
+            $factory = \core\lock\lock_config::get_lock_factory('local_coursedownloads');
             $lock = $factory->get_lock('course-' . $courseid, 10);
             if (!$lock) {
                 throw new \moodle_exception('locktimeout', 'error');
             }
             try {
-                $existing = $DB->get_record('local_coursefiles_coursecfg', ['courseid' => $courseid]);
+                $existing = $DB->get_record('local_coursedownloads_cfg', ['courseid' => $courseid]);
                 if ($existing) {
                     $config->id = $existing->id;
-                    $DB->update_record('local_coursefiles_coursecfg', $config);
+                    $DB->update_record('local_coursedownloads_cfg', $config);
                 } else {
-                    $DB->insert_record('local_coursefiles_coursecfg', $config);
+                    $DB->insert_record('local_coursedownloads_cfg', $config);
                 }
             } finally {
                 $lock->release();

@@ -1,5 +1,5 @@
 <?php
-namespace local_coursefiles;
+namespace local_coursedownloads;
 
 use coding_exception;
 use core_component;
@@ -90,7 +90,7 @@ class course_file {
      * @throws coding_exception|dml_exception|moodle_exception
      */
     public static function create(stdClass $file) : course_file {
-        $classname = '\local_coursefiles\components\\' . $file->component;
+        $classname = '\local_coursedownloads\components\\' . $file->component;
         if (class_exists($classname)) {
             return new $classname($file);
         }

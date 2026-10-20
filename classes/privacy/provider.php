@@ -15,20 +15,20 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Privacy Subsystem implementation for local_coursefiles.
+ * Privacy Subsystem implementation for local_coursedownloads.
  *
- * @package    local_coursefiles
+ * @package    local_coursedownloads
  * @copyright  2022 Kacper Rokicki <k.k.rokicki@gmail.com>
  * @copyright  based on work by 2022 Martin Gauk (@innoCampus, TU Berlin)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace local_coursefiles\privacy;
+namespace local_coursedownloads\privacy;
 
 use core_privacy\local\metadata\null_provider;
 
 /**
- * Privacy Subsystem for local_coursefiles implementing null_provider.
+ * Privacy Subsystem for local_coursedownloads implementing null_provider.
  *
  * @copyright  2022 Kacper Rokicki <k.k.rokicki@gmail.com>
  * @copyright  based on work by 2022 Martin Gauk (@innoCampus, TU Berlin)

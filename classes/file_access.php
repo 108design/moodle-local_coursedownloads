@@ -2,7 +2,7 @@
 // This file is part of Moodle - https://moodle.org/
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-namespace local_coursefiles;
+namespace local_coursedownloads;
 
 defined('MOODLE_INTERNAL') || die();
 

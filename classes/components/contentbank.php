@@ -1,9 +1,9 @@
 <?php
-namespace local_coursefiles\components;
+namespace local_coursedownloads\components;
 
 use dml_exception;
 use file_storage;
-use local_coursefiles\course_file;
+use local_coursedownloads\course_file;
 use moodle_exception;
 use moodle_url;
 use stored_file;

@@ -1,4 +1,4 @@
-# Course Files for Moodle
+# Course Downloads for Moodle
 
 A simple Moodle local plugin that allows students
 and other course participants to view, filter and download
@@ -9,11 +9,11 @@ the course files that are available to them.
 
 <table>
 <tr>
-<td width="50%" valign="top"><a href="https://raw.githubusercontent.com/108design/moodle-local_coursefiles/main/docs/screenshots/01-course-settings.jpg"><img src="https://raw.githubusercontent.com/108design/moodle-local_coursefiles/main/docs/screenshots/01-course-settings.jpg" alt="Course download permissions" width="100%"></a><br><strong>Course download permissions</strong><br>Choose download visibility, permitted file groups and extension rules in the course.</td>
-<td width="50%" valign="top"><a href="https://raw.githubusercontent.com/108design/moodle-local_coursefiles/main/docs/screenshots/02-filters-and-downloads.jpg"><img src="https://raw.githubusercontent.com/108design/moodle-local_coursefiles/main/docs/screenshots/02-filters-and-downloads.jpg" alt="Filtered materials and section archives" width="100%"></a><br><strong>Filtered materials and section archives</strong><br>Combine filters, select individual files or download separate section archives.</td>
+<td width="50%" valign="top"><a href="https://raw.githubusercontent.com/108design/moodle-local_coursedownloads/main/docs/screenshots/01-course-settings.jpg"><img src="https://raw.githubusercontent.com/108design/moodle-local_coursedownloads/main/docs/screenshots/01-course-settings.jpg" alt="Course download permissions" width="100%"></a><br><strong>Course download permissions</strong><br>Choose download visibility, permitted file groups and extension rules in the course.</td>
+<td width="50%" valign="top"><a href="https://raw.githubusercontent.com/108design/moodle-local_coursedownloads/main/docs/screenshots/02-filters-and-downloads.jpg"><img src="https://raw.githubusercontent.com/108design/moodle-local_coursedownloads/main/docs/screenshots/02-filters-and-downloads.jpg" alt="Filtered materials and section archives" width="100%"></a><br><strong>Filtered materials and section archives</strong><br>Combine filters, select individual files or download separate section archives.</td>
 </tr>
 <tr>
-<td width="50%" valign="top"><a href="https://raw.githubusercontent.com/108design/moodle-local_coursefiles/main/docs/screenshots/03-admin-settings.jpg"><img src="https://raw.githubusercontent.com/108design/moodle-local_coursefiles/main/docs/screenshots/03-admin-settings.jpg" alt="Website defaults" width="100%"></a><br><strong>Website defaults</strong><br>Set the default permitted file groups in site administration.</td>
+<td width="50%" valign="top"><a href="https://raw.githubusercontent.com/108design/moodle-local_coursedownloads/main/docs/screenshots/03-admin-settings.jpg"><img src="https://raw.githubusercontent.com/108design/moodle-local_coursedownloads/main/docs/screenshots/03-admin-settings.jpg" alt="Website defaults" width="100%"></a><br><strong>Website defaults</strong><br>Set the default permitted file groups in site administration.</td>
 <td width="50%"></td>
 </tr>
 </table>
@@ -35,32 +35,44 @@ internal question files and unsupported internal file areas are excluded.
 
 ## PDF Workspace originals
 
-If PDF Workspace 1.5.10 or later is installed, Course Files also lists registered original PDFs
+If PDF Workspace 1.5.10 or later is installed, Course Downloads also lists registered original PDFs
 that the current user may view and download. The activity must allow original downloads or the
-user must have `mod/pdfworkspace:printdocument`. Course Files management does not bypass this rule.
+user must have `mod/pdfworkspace:printdocument`. Course Downloads management does not bypass this rule.
 Direct links, selected-file ZIPs and section ZIPs recheck access. Comment attachments, annotated
 exports and combined workspace exports are excluded. A document does not need to be selected for
 a whole-workspace export to permit its original download. PDF Workspace is optional.
 
 ## Download
 
-Download the installation ZIP from the [latest release](https://github.com/108design/moodle-local_coursefiles/releases/latest).
+Download the installation ZIP from the [latest release](https://github.com/108design/moodle-local_coursedownloads/releases/latest).
 
 ## Quick install
 
-Use Moodle’s ZIP plugin installer, or copy the plugin files into `local/coursefiles` inside
+Use Moodle’s ZIP plugin installer, or copy the plugin files into `local/coursedownloads` inside
 your Moodle web root. In Moodle 5.1 and later the web root is the `public` directory.
 Complete the installation or upgrade through **Site administration > Notifications**.
 
+## Upgrading from Course Files
+
+The component has changed from local_coursefiles to local_coursedownloads.
+Back up your database and the old plugin first. Remove the old local/coursefiles code
+folder **without uninstalling Course Files**, then install Course Downloads in
+local/coursedownloads and complete Moodle's native installation. The one-time migration
+preserves existing course settings, website defaults and role permission overrides.
+Do not uninstall the old plugin before this migration: Moodle uninstallation removes its settings.
+If the new installation reports a conflict, retain the backups and resolve it before continuing.
+The old and new code folders must not be installed together. Course materials remain in their
+original Moodle file areas. Course Downloads uses the new URLs under local/coursedownloads.
+
 ## Settings and permissions
 
-Open **Downloads** in the course navigation. Users with `local/coursefiles:manage` can configure
+Open **Course Downloads** in the course navigation. Users with `local/coursedownloads:manage` can configure
 the course; the default editing teacher and manager roles have this permission. Downloads are
 hidden from other users until a course manager enables them. View and ZIP download permissions
-can be assigned separately with `local/coursefiles:view` and `local/coursefiles:download`.
+can be assigned separately with `local/coursedownloads:view` and `local/coursedownloads:download`.
 
 Website administrators can set default file groups under **Site administration > Plugins >
-Local plugins > Course files**. Existing courses can override the groups on Downloads or in
+Local plugins > Course Downloads**. Existing courses can override the groups on Course Downloads or in
 their course settings. An empty selection uses the website defaults.
 
 Enter filename extensions separated by commas, for example `pdf,jpg,h5p`. The whitelist adds
@@ -86,6 +98,9 @@ Use the information icon in the top navigation for the page help. Consequential 
 link directly to their help topics.
 
 ## Changelog
+- Version 2026102006 — 4.0.1
+  - Renamed to Course Downloads (local_coursedownloads).
+  - Migrates existing Course Files course settings and permission overrides.
 - Version 2026102005 — 4.0
   - Stable release of the renewed Course Files for Moodle 4.5–5.3.
   - Same functionality as 3.07.
@@ -131,7 +146,7 @@ Developed by: Kacper Rokicki <k.k.rokicki@gmail.com>
 
 Based on "List course files" plugin: https://moodle.org/plugins/local_listcoursefiles
 
-Current repository: https://github.com/108design/moodle-local_coursefiles
+Current repository: https://github.com/108design/moodle-local_coursedownloads
 
 Original upstream repository: https://github.com/k-rokicki/moodle-local_coursefiles
 

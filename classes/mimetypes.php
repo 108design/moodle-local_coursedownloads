@@ -1,5 +1,5 @@
 <?php
-namespace local_coursefiles;
+namespace local_coursedownloads;
 
 use coding_exception;
 use lang_string;
@@ -43,7 +43,7 @@ class mimetypes {
             foreach ($types as $mime) {
                 if ($mime === $mimetype ||
                     (substr($mime, -1) === '%' && strncmp($mime, $mimetype, strlen($mime) - 1) === 0)) {
-                    return get_string('filetype:' . $name, 'local_coursefiles');
+                    return get_string('filetype:' . $name, 'local_coursedownloads');
                 }
             }
         }

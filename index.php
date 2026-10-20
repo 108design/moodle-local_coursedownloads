@@ -11,25 +11,25 @@ $sections = array_values(array_unique(optional_param_array('sections', [], PARAM
 $course = $DB->get_record('course', ['id' => $courseid], '*', MUST_EXIST);
 require_login($course);
 $context = context_course::instance($courseid);
-require_capability('local/coursefiles:view', $context);
-$canmanage = has_capability('local/coursefiles:manage', $context);
-$downloadallowed = has_capability('local/coursefiles:download', $context);
-$config = \local_coursefiles\course_settings::get($courseid);
+require_capability('local/coursedownloads:view', $context);
+$canmanage = has_capability('local/coursedownloads:manage', $context);
+$downloadallowed = has_capability('local/coursedownloads:download', $context);
+$config = \local_coursedownloads\course_settings::get($courseid);
 
 $sectionparams = [];
 foreach ($sections as $index => $sectionid) {
     $sectionparams['sections[' . $index . ']'] = $sectionid;
 }
 $params = ['courseid' => $courseid, 'component' => $component, 'filetype' => $filetype] + $sectionparams;
-$url = new moodle_url('/local/coursefiles/index.php', $params);
+$url = new moodle_url('/local/coursedownloads/index.php', $params);
 $PAGE->set_url($url);
 $PAGE->set_context($context);
 $PAGE->set_course($course);
-$PAGE->set_title(get_string('pluginname', 'local_coursefiles'));
+$PAGE->set_title(get_string('pluginname', 'local_coursedownloads'));
 $PAGE->set_heading(format_string($course->fullname));
 $PAGE->set_pagelayout('incourse');
-$PAGE->requires->css(new moodle_url('/local/coursefiles/styles/search_bar.css'));
-$PAGE->requires->css(new moodle_url('/local/coursefiles/styles/view.css', ['rev' => get_config('local_coursefiles', 'version')]));
+$PAGE->requires->css(new moodle_url('/local/coursedownloads/styles/search_bar.css'));
+$PAGE->requires->css(new moodle_url('/local/coursedownloads/styles/view.css', ['rev' => get_config('local_coursedownloads', 'version')]));
 
 if ($action === 'filtersections') {
     require_sesskey();
@@ -40,47 +40,47 @@ if ($action === 'filtersections') {
 }
 
 if ($action === 'savesettings') {
-    require_capability('local/coursefiles:manage', $context);
+    require_capability('local/coursedownloads:manage', $context);
     require_sesskey();
     if (!data_submitted()) {
         throw new moodle_exception('invalidrequest', 'error');
     }
     try {
-        \local_coursefiles\course_settings::save($courseid,
+        \local_coursedownloads\course_settings::save($courseid,
             optional_param_array('allowedfiletypes', [], PARAM_ALPHA),
             (bool)optional_param('hidestudents', 0, PARAM_BOOL),
             optional_param('whitelist_ext', '', PARAM_RAW_TRIMMED),
             optional_param('blacklist_ext', '', PARAM_RAW_TRIMMED));
-        redirect($url, get_string('settingssaved', 'local_coursefiles'), null, \core\output\notification::NOTIFY_SUCCESS);
+        redirect($url, get_string('settingssaved', 'local_coursedownloads'), null, \core\output\notification::NOTIFY_SUCCESS);
     } catch (moodle_exception $exception) {
         \core\notification::error($exception->getMessage());
     }
-    $config = \local_coursefiles\course_settings::get($courseid);
+    $config = \local_coursedownloads\course_settings::get($courseid);
 }
 $showpage = $canmanage || empty($config->hidestudents);
-$coursefiles = new \local_coursefiles\course_files($courseid, $context, $component, $filetype, $sections);
+$coursedownloads = new \local_coursedownloads\course_files($courseid, $context, $component, $filetype, $sections);
 if ($action === 'download' || $action === 'downloadsections') {
-    require_capability('local/coursefiles:download', $context);
+    require_capability('local/coursedownloads:download', $context);
     require_sesskey();
     if (!data_submitted()) {
         throw new moodle_exception('invalidrequest', 'error');
     }
     try {
         if ($action === 'downloadsections') {
-            $coursefiles->download_sections($sections ?: array_keys($coursefiles->get_sections()));
+            $coursedownloads->download_sections($sections ?: array_keys($coursedownloads->get_sections()));
         } else {
-            $coursefiles->download_files(optional_param_array('file', [], PARAM_INT));
+            $coursedownloads->download_files(optional_param_array('file', [], PARAM_INT));
         }
     } catch (moodle_exception $exception) {
         \core\notification::error($exception->getMessage());
     }
 }
-$renderer = $PAGE->get_renderer('local_coursefiles');
+$renderer = $PAGE->get_renderer('local_coursedownloads');
 echo $OUTPUT->header();
-$componenturl = new moodle_url('/local/coursefiles/index.php',
+$componenturl = new moodle_url('/local/coursedownloads/index.php',
     ['courseid' => $courseid, 'filetype' => $filetype] + $sectionparams);
-$filetypeurl = new moodle_url('/local/coursefiles/index.php',
+$filetypeurl = new moodle_url('/local/coursedownloads/index.php',
     ['courseid' => $courseid, 'component' => $component] + $sectionparams);
-echo $renderer->overview_page($url, $componenturl, $filetypeurl, $coursefiles, $downloadallowed,
+echo $renderer->overview_page($url, $componenturl, $filetypeurl, $coursedownloads, $downloadallowed,
     ['canmanage' => $canmanage, 'showpage' => $showpage, 'config' => $config, 'settingsopen' => $action === 'savesettings']);
 echo $OUTPUT->footer();

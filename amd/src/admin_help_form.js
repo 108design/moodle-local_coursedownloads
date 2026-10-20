@@ -5,7 +5,7 @@ export const init = () => {
     const navigation = document.querySelector('#usernavigation');
     const alignNavbarHelp = () => {
         if (!navigation) return;
-        const help = navigation.querySelector('.local-coursefiles-help-navbar');
+        const help = navigation.querySelector('.local-coursedownloads-help-navbar');
         const children = [...navigation.children];
         const anchor = children.find(node => node.classList.contains('divider')) ||
             children.find(node => node.matches('[data-region="usermenu"], .usermenu-container'));

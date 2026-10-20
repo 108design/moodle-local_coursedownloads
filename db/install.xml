@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="local/coursefiles/db" VERSION="2026101900" COMMENT="XMLDB file for local_coursefiles">
+<XMLDB PATH="local/coursedownloads/db" VERSION="2026102006" COMMENT="XMLDB file for local_coursedownloads">
   <TABLES>
-    <TABLE NAME="local_coursefiles_coursecfg" COMMENT="Per-course config for local_coursefiles">
+    <TABLE NAME="local_coursedownloads_cfg" COMMENT="Per-course config for local_coursedownloads">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true"/>

@@ -1,8 +1,8 @@
 <?php
-namespace local_coursefiles\components;
+namespace local_coursedownloads\components;
 
 use dml_exception;
-use local_coursefiles\course_file;
+use local_coursedownloads\course_file;
 use moodle_url;
 
 class mod_forum extends course_file {

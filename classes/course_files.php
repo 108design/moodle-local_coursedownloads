@@ -1,7 +1,7 @@
 <?php
 // This file is part of Moodle - https://moodle.org/
 // SPDX-License-Identifier: GPL-3.0-or-later
-namespace local_coursefiles;
+namespace local_coursedownloads;
 defined('MOODLE_INTERNAL') || die();
 
 /** Course material inventory; display filters never replace file authorisation. */
@@ -28,7 +28,7 @@ class course_files {
         $this->filtersections = array_values(array_unique(array_map('intval', $sections)));
         $this->coursemodinfo = get_fast_modinfo($courseid);
         $this->config = course_settings::get($courseid);
-        $this->canmanage = has_capability('local/coursefiles:manage', $context);
+        $this->canmanage = has_capability('local/coursedownloads:manage', $context);
     }
 
     public function get_course_id(): int { return $this->courseid; }
@@ -38,12 +38,12 @@ class course_files {
 
     /** Hidden-page policy and native course access also protect direct class callers. */
     private function require_access(): void {
-        require_capability('local/coursefiles:view', $this->context);
+        require_capability('local/coursedownloads:view', $this->context);
         if (!can_access_course($this->coursemodinfo->get_course())) {
             throw new \required_capability_exception($this->context, 'moodle/course:view', 'nopermissions', '');
         }
         if (!$this->canmanage && !empty($this->config->hidestudents)) {
-            throw new \moodle_exception('hiddenforstudents', 'local_coursefiles');
+            throw new \moodle_exception('hiddenforstudents', 'local_coursedownloads');
         }
     }
 
@@ -112,7 +112,7 @@ class course_files {
         }
         foreach ($this->accessible_files() as $file) {
             if ($this->section_for_file($file) === 0) {
-                $sections[0] = get_string('coursewidefiles', 'local_coursefiles');
+                $sections[0] = get_string('coursewidefiles', 'local_coursedownloads');
                 break;
             }
         }
@@ -165,16 +165,16 @@ class course_files {
             $components[$record->component] = self::get_component_translation($record->component);
         }
         asort($components, SORT_NATURAL | SORT_FLAG_CASE);
-        return ['all' => get_string('allcomponents', 'local_coursefiles')] + $components;
+        return ['all' => get_string('allcomponents', 'local_coursedownloads')] + $components;
     }
 
     /** Reload current role, policy and native section/activity state before every export. */
     private function refresh_access(): void {
-        require_capability('local/coursefiles:download', $this->context);
+        require_capability('local/coursedownloads:download', $this->context);
         $this->accessible = null;
         $this->coursemodinfo = get_fast_modinfo($this->courseid);
         $this->config = course_settings::get($this->courseid);
-        $this->canmanage = has_capability('local/coursefiles:manage', $this->context);
+        $this->canmanage = has_capability('local/coursedownloads:manage', $this->context);
     }
 
     /** Recheck original-download rights when following a PDF Workspace link from the overview. */
@@ -182,11 +182,11 @@ class course_files {
         $this->refresh_access();
         $allowed = $this->filtered_records(false);
         if (!isset($allowed[$fileid]) || $allowed[$fileid]->component !== 'mod_pdfworkspace') {
-            throw new \moodle_exception('invalidselection', 'local_coursefiles');
+            throw new \moodle_exception('invalidselection', 'local_coursedownloads');
         }
         $file = get_file_storage()->get_file_by_id($fileid);
         if (!$file || $file->is_directory()) {
-            throw new \moodle_exception('invalidselection', 'local_coursefiles');
+            throw new \moodle_exception('invalidselection', 'local_coursedownloads');
         }
         return $file;
     }
@@ -198,12 +198,12 @@ class course_files {
         foreach ($records as $record) {
             $storedfile = $storage->get_file_by_id($record->id);
             if (!$storedfile || $storedfile->is_directory()) {
-                throw new \moodle_exception('invalidselection', 'local_coursefiles');
+                throw new \moodle_exception('invalidselection', 'local_coursedownloads');
             }
             $archivefiles[$this->get_unique_file_name($storedfile->get_filename(), $archivefiles)] = $storedfile;
         }
         if (!get_file_packer('application/zip')->archive_to_pathname($archivefiles, $archive)) {
-            throw new \moodle_exception('archivefailed', 'local_coursefiles');
+            throw new \moodle_exception('archivefailed', 'local_coursedownloads');
         }
         return $archive;
     }
@@ -214,16 +214,16 @@ class course_files {
         $allowed = $this->filtered_records(false);
         $ids = array_values(array_unique(array_map('intval', $fileids)));
         if (!$ids) {
-            throw new \moodle_exception('nofileselected', 'local_coursefiles');
+            throw new \moodle_exception('nofileselected', 'local_coursedownloads');
         }
         if (array_diff($ids, array_keys($allowed))) {
-            throw new \moodle_exception('invalidselection', 'local_coursefiles');
+            throw new \moodle_exception('invalidselection', 'local_coursedownloads');
         }
         $records = [];
         foreach ($ids as $id) {
             $records[] = $allowed[$id];
         }
-        return $this->archive_records($records, make_request_directory() . '/coursefiles.zip');
+        return $this->archive_records($records, make_request_directory() . '/coursedownloads.zip');
     }
 
     /** Course-policy-permitted records, shared by the visible export count and actual section ZIPs. */
@@ -251,15 +251,15 @@ class course_files {
         $this->refresh_access();
         $ids = array_values(array_unique(array_map('intval', $sectionids)));
         if (!$ids) {
-            throw new \moodle_exception('nosectionselected', 'local_coursefiles');
+            throw new \moodle_exception('nosectionselected', 'local_coursedownloads');
         }
         $sections = $this->get_sections();
         if (array_diff($ids, array_keys($sections))) {
-            throw new \moodle_exception('invalidsections', 'local_coursefiles');
+            throw new \moodle_exception('invalidsections', 'local_coursedownloads');
         }
         $groups = $this->section_groups($ids);
         if (!$groups) {
-            throw new \moodle_exception('nosectionfiles', 'local_coursefiles');
+            throw new \moodle_exception('nosectionfiles', 'local_coursedownloads');
         }
         $directory = make_request_directory();
         $archives = [];
@@ -272,7 +272,7 @@ class course_files {
         }
         $archive = $directory . '/sections.zip';
         if (!get_file_packer('application/zip')->archive_to_pathname($archives, $archive)) {
-            throw new \moodle_exception('archivefailed', 'local_coursefiles');
+            throw new \moodle_exception('archivefailed', 'local_coursedownloads');
         }
         return $archive;
     }
@@ -304,17 +304,17 @@ class course_files {
     }
 
     public static function get_file_types(?array $allowedtypes = null): array {
-        $types = ['all' => get_string('filetype:all', 'local_coursefiles')];
+        $types = ['all' => get_string('filetype:all', 'local_coursedownloads')];
         foreach (course_settings::TYPES as $type) {
             if ($allowedtypes === null || in_array($type, $allowedtypes, true)) {
-                $types[$type] = get_string('filetype:' . $type, 'local_coursefiles');
+                $types[$type] = get_string('filetype:' . $type, 'local_coursedownloads');
             }
         }
         return $types;
     }
 
     public static function get_component_translation(string $component): string {
-        if ($component === 'course') { return get_string('sourcecourse', 'local_coursefiles'); }
+        if ($component === 'course') { return get_string('sourcecourse', 'local_coursedownloads'); }
         if ($component === 'contentbank') { return get_string('contentbank', 'contentbank'); }
         if (strpos($component, 'mod_') === 0) { return get_string('pluginname', $component); }
         return $component;

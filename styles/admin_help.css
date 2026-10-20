@@ -1,16 +1,16 @@
 /* Contextual help copied from Frontpage; only this plugin's registered settings page is affected. */
-body.local-coursefiles-admin-help-page {
-    --local-coursefiles-help-width: 24rem;
-    --local-coursefiles-help-top: 4rem;
+body.local-coursedownloads-admin-help-page {
+    --local-coursedownloads-help-width: 24rem;
+    --local-coursedownloads-help-top: 4rem;
 }
-body.local-coursefiles-admin-help-page #page.drawers { transition: none; }
-.local-coursefiles-context-help[hidden] { display: none !important; }
-.local-coursefiles-context-help {
+body.local-coursedownloads-admin-help-page #page.drawers { transition: none; }
+.local-coursedownloads-context-help[hidden] { display: none !important; }
+.local-coursedownloads-context-help {
     position: fixed;
-    inset-block-start: var(--local-coursefiles-help-top, 4rem);
+    inset-block-start: var(--local-coursedownloads-help-top, 4rem);
     inset-block-end: 1rem;
     inset-inline-end: 1rem;
-    width: var(--local-coursefiles-help-width, 24rem);
+    width: var(--local-coursedownloads-help-width, 24rem);
     max-width: calc(100vw - 2rem);
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@ body.local-coursefiles-admin-help-page #page.drawers { transition: none; }
     /* Above page/editor action bars (1025/1026), below the navbar and modals. */
     z-index: 1027;
 }
-.local-coursefiles-help-header {
+.local-coursedownloads-help-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -31,11 +31,11 @@ body.local-coursefiles-admin-help-page #page.drawers { transition: none; }
     border-bottom: 1px solid var(--bs-border-color, #dee2e6);
     flex: 0 0 auto;
 }
-.local-coursefiles-help-header > h2 {
+.local-coursedownloads-help-header > h2 {
     min-width: 0;
     overflow-wrap: anywhere;
 }
-.local-coursefiles-help-close {
+.local-coursedownloads-help-close {
     flex: 0 0 auto;
     width: 2.25rem;
     height: 2.25rem;
@@ -43,8 +43,8 @@ body.local-coursefiles-admin-help-page #page.drawers { transition: none; }
     font-size: 1.5rem;
     line-height: 1;
 }
-.local-coursefiles-help-choices { padding: 1rem; flex: 0 0 auto; }
-.local-coursefiles-help-content {
+.local-coursedownloads-help-choices { padding: 1rem; flex: 0 0 auto; }
+.local-coursedownloads-help-content {
     padding: 0 1rem 1rem;
     min-height: 0;
     overflow-y: auto;
@@ -53,16 +53,16 @@ body.local-coursefiles-admin-help-page #page.drawers { transition: none; }
     line-height: 1.6;
 }
 @media (min-width: 992px) {
-    body.local-coursefiles-admin-help-page.local-coursefiles-help-open #page.drawers {
-        margin-inline-end: calc(var(--local-coursefiles-help-width) + 2rem);
+    body.local-coursedownloads-admin-help-page.local-coursedownloads-help-open #page.drawers {
+        margin-inline-end: calc(var(--local-coursedownloads-help-width) + 2rem);
     }
 }
 @media (max-width: 991.98px) {
-    .local-coursefiles-context-help { width: calc(100vw - 2rem); inset-block-end: .5rem; }
+    .local-coursedownloads-context-help { width: calc(100vw - 2rem); inset-block-end: .5rem; }
 }
 
 /* Context entry is registered by the current page before its header is rendered. */
-.local-coursefiles-help-navbar {
+.local-coursedownloads-help-navbar {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -72,48 +72,48 @@ body.local-coursefiles-admin-help-page #page.drawers { transition: none; }
     margin-inline: 0;
     background: transparent;
 }
-.local-coursefiles-help-navbar .icon { margin: 0; width: 1rem; height: 1rem; }
+.local-coursedownloads-help-navbar .icon { margin: 0; width: 1rem; height: 1rem; }
 /* Older Core has no exclusive drawer API. Mask only while help is open; preserve native drawer state/preferences. */
-body.local-coursefiles-help-legacy-drawers.local-coursefiles-help-open .drawer.drawer-right { visibility: hidden; pointer-events: none; }
+body.local-coursedownloads-help-legacy-drawers.local-coursedownloads-help-open .drawer.drawer-right { visibility: hidden; pointer-events: none; }
 
 /* Keep Moodle's native flex/block field layout and intrinsic control widths.
    Reserve only the small space occupied by linked help, including on wide widgets. */
-.mform .local-coursefiles-form-help-field > :not(.local-coursefiles-form-help):not(.form-control-feedback):not(.form-check) {
+.mform .local-coursedownloads-form-help-field > :not(.local-coursedownloads-form-help):not(.form-control-feedback):not(.form-check) {
     max-width: calc(100% - 2rem);
 }
-.mform .local-coursefiles-form-help-field > .local-coursefiles-form-help,
-.mform .local-coursefiles-form-help-field > .form-check > .local-coursefiles-form-help {
+.mform .local-coursedownloads-form-help-field > .local-coursedownloads-form-help,
+.mform .local-coursedownloads-form-help-field > .form-check > .local-coursedownloads-form-help {
     flex: none;
     margin: 0 !important;
     margin-inline-start: .5rem !important;
     padding-top: .45rem;
 }
-.mform .local-coursefiles-form-help-field > .form-check > .local-coursefiles-form-help { padding-top: 0; }
+.mform .local-coursedownloads-form-help-field > .form-check > .local-coursedownloads-form-help { padding-top: 0; }
 
 /* Keep native labels, aligning only short help to the label-column edge. */
-.mform .local-coursefiles-form-help-label > .form-label-addon { margin-inline-start: auto; }
+.mform .local-coursedownloads-form-help-label > .form-label-addon { margin-inline-start: auto; }
 
 /* Shared topic-first help header; the title below belongs to the selected article. */
 
-.local-coursefiles-help-header { align-items: flex-start; }
-.local-coursefiles-help-header > h2 { margin: 0; }
-.local-coursefiles-help-choices { padding: 0; flex: 1 1 auto; min-width: 0; }
-.local-coursefiles-help-choices .form-label {
+.local-coursedownloads-help-header { align-items: flex-start; }
+.local-coursedownloads-help-header > h2 { margin: 0; }
+.local-coursedownloads-help-choices { padding: 0; flex: 1 1 auto; min-width: 0; }
+.local-coursedownloads-help-choices .form-label {
     display: block; font-size: .75rem; font-weight: 600; line-height: 1.4;
     color: var(--bs-secondary-color, #6c757d); margin: 0 0 .35rem;
 }
-.local-coursefiles-help-choices select { width: 100%; max-width: 100%; }
-.local-coursefiles-help-close {
+.local-coursedownloads-help-choices select { width: 100%; max-width: 100%; }
+.local-coursedownloads-help-close {
     flex: 0 0 auto; width: 2.25rem; height: 2.25rem; padding: 0;
     font-size: 1.5rem; line-height: 1; margin: 0;
 }
-.local-coursefiles-help-content { padding-block-start: 1rem; }
-.local-coursefiles-help-content article > h3 {
+.local-coursedownloads-help-content { padding-block-start: 1rem; }
+.local-coursedownloads-help-content article > h3 {
     font-size: 1rem; font-weight: 600; line-height: 1.4; margin: 0 0 .75rem;
 }
 
 /* Shared help identity: original 24px SVG above close, close beside the topic selector. */
-.local-coursefiles-help-header-branded {
+.local-coursedownloads-help-header-branded {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 2.25rem;
     grid-template-rows: auto auto;
@@ -121,18 +121,18 @@ body.local-coursefiles-help-legacy-drawers.local-coursefiles-help-open .drawer.d
     row-gap: .35rem;
     align-items: center;
 }
-.local-coursefiles-help-header-branded .local-coursefiles-help-choices { display: contents; }
-.local-coursefiles-help-header-branded .local-coursefiles-help-choices > label {
+.local-coursedownloads-help-header-branded .local-coursedownloads-help-choices { display: contents; }
+.local-coursedownloads-help-header-branded .local-coursedownloads-help-choices > label {
     grid-column: 1;
     grid-row: 1;
     margin: 0;
 }
-.local-coursefiles-help-header-branded .local-coursefiles-help-choices > select {
+.local-coursedownloads-help-header-branded .local-coursedownloads-help-choices > select {
     grid-column: 1;
     grid-row: 2;
     min-width: 0;
 }
-.local-coursefiles-help-brand {
+.local-coursedownloads-help-brand {
     grid-column: 2;
     grid-row: 1;
     display: inline-flex;
@@ -143,8 +143,8 @@ body.local-coursefiles-help-legacy-drawers.local-coursefiles-help-open .drawer.d
     height: 1.5rem;
     cursor: default;
 }
-.local-coursefiles-help-brand img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.local-coursefiles-help-header-branded .local-coursefiles-help-close {
+.local-coursedownloads-help-brand img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.local-coursedownloads-help-header-branded .local-coursedownloads-help-close {
     grid-column: 2;
     grid-row: 2;
     align-self: center;
