@@ -79,6 +79,15 @@ final class admin_branding {
             $css .= $row . ' > img.icon { display: none; }' . "\n";
             $css .= self::icon_css($row . '::before', $image, '1em');
         }
+        if ($path === $nativepath($admin . '/index.php')
+                && (int)$PAGE->context->contextlevel === CONTEXT_SYSTEM
+                && has_capability('moodle/site:config', $system)) {
+            // Upgrade checks have different markup from the ordinary plugin overview.
+            // Keep the activity's icon/monologo assets unchanged for course pages.
+            $row = 'body#page-admin-index #plugins-check tr.name-local_coursedownloads td.displayname';
+            $css .= $row . ' > img.pluginicon { display: none; }' . "\n";
+            $css .= self::icon_css($row . ' > .pluginname::before', $image, '1em');
+        }
         if ($path === $nativepath($admin . '/search.php')) {
             foreach (self::LINKS as $target => $capability) {
                 if (!has_capability($capability, $system)) {
