@@ -1,0 +1,17 @@
+name: Course Downloads
+summary: 108design's free GPL course-download browser filters accessible materials and downloads selected
+  files or separate archives for each section.
+category: Course tools
+description: |
+  Let course participants browse, filter and download the course materials they are allowed to access. Filter by file source, file type and one or more course sections. Download selected files together, or create a ZIP containing separate archives for selected nonempty sections. Duplicate filenames are preserved with numbering.
+
+  Course managers control visibility, allowed file groups and filename-extension rules. Moodle activity, group and file permissions continue to apply. Private assignment submissions, internal question files and unsupported internal areas are excluded. Download settings do not grant access to otherwise protected files.
+
+  When the optional PDF Workspace plugin is installed, permitted original PDFs can also appear. The integration rechecks the activity's download permissions and excludes comment attachments, annotated PDFs and combined workspace exports. PDF Workspace is not required for ordinary course downloads.
+
+  For upgrades from the older Course Files component, follow the documented migration procedure and retain backups: do not uninstall Course Files before migration. Maintained by 108design and available free of charge under the GNU GPL v3 or later.
+labels:
+- fully-free
+links:
+  docs: https://github.com/108design/moodle-local_coursedownloads/blob/main/README.md
+  issues: https://github.com/108design/moodle-local_coursedownloads/issues

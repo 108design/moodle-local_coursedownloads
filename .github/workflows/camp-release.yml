@@ -1,0 +1,14 @@
+name: Publish release to CAMP
+
+'on':
+  push:
+    tags: ["v*"]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  camp:
+    uses: camp-registry/camp-workflows/.github/workflows/release.yml@5a10f41c994070c9bcbc9bb1ec515592530e83ee # v1
