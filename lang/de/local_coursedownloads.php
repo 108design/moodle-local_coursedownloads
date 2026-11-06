@@ -142,3 +142,10 @@ $string['migrationforeignstate'] = 'Die alte Course-Files-Installation enthält 
 $string['migrationschema'] = 'Die alte Course-Files-Einstellungstabelle hat eine nicht unterstützte Struktur. Bewahre Deine Sicherungen auf und kläre die Migration, bevor Du fortfährst.';
 $string['migrationconflict'] = 'Die Einstellungen von Course Files und Kurs-Downloads widersprechen sich. Alte Einstellungen wurden nicht entfernt. Löse den Konflikt und wiederhole die Installation.';
 $string['migrationpermissions'] = 'Die Rechteüberschreibungen von Course Files konnten nicht exakt übernommen werden. Bewahre Deine Sicherungen auf und kläre die Migration, bevor Du fortfährst.';
+
+$string['searchbarfilters'] = 'Filtern';
+$string['searchbardisplay'] = 'Darstellung';
+$string['searchbarreset'] = 'Filter zurücksetzen';
+$string['searchbarremove'] = 'Filter entfernen: {$a}';
+$string['searchbarloading'] = 'Ergebnisse werden geladen …';
+$string['searchbarerror'] = 'Die Ergebnisse konnten nicht aktualisiert werden. Bitte die Suche erneut absenden.';

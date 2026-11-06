@@ -29,8 +29,8 @@
 defined('MOODLE_INTERNAL') || die;
 
 $plugin->component = "local_coursedownloads";
-$plugin->version   = 2026102900;
+$plugin->version   = 2026110600;
 $plugin->requires  = 2024100700; // Moodle 4.5.
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = '4.2.0';
+$plugin->release   = '4.3.0';
 $plugin->supported = [405, 503];

@@ -142,3 +142,10 @@ $string['migrationforeignstate'] = 'The old Course Files installation contains u
 $string['migrationschema'] = 'The old Course Files settings table has an unsupported structure. Keep your backups and resolve the migration before continuing.';
 $string['migrationconflict'] = 'Course Files and Course Downloads settings conflict. No legacy settings have been removed. Resolve the conflict and retry the installation.';
 $string['migrationpermissions'] = 'Course Files permission overrides could not be preserved exactly. Keep your backups and resolve the migration before continuing.';
+
+$string['searchbarfilters'] = 'Filter';
+$string['searchbardisplay'] = 'Display';
+$string['searchbarreset'] = 'Reset Filters';
+$string['searchbarremove'] = 'Remove Filter: {$a}';
+$string['searchbarloading'] = 'Loading results …';
+$string['searchbarerror'] = 'The results could not be updated. Please submit the search again.';
