@@ -1,4 +1,4 @@
-# Generated for the exact normal installation profile; CAMP metadata stays in Git.
+# Generated for the exact normal installation profile.
 * -export-ignore -export-subst
 "/.camp" export-ignore -export-subst
 "/.camp/listing.yml" export-ignore -export-subst
