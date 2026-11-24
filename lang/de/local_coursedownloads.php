@@ -24,6 +24,7 @@
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 // SPDX-License-Identifier: GPL-3.0-or-later
+
 $string['coursedownloads:download'] = 'Dateien herunterladen';
 $string['coursedownloads:view'] = 'Dateien ansehen';
 $string['coursedownloads:manage'] = 'Kurs-Downloads-Einstellungen verwalten';
@@ -57,10 +58,10 @@ $string['allowedfiletypes_help'] = 'Diese Gruppen gelten für Personen ohne Bere
 $string['exception_lists'] = 'Ausnahmen';
 $string['whitelist_desc'] = 'Whitelist: zusätzlich <strong class="text-success">erlaubte</strong> Dateiendungen';
 $string['blacklist_desc'] = 'Blacklist: <strong class="text-danger">ausgeschlossene</strong> Dateiendungen';
-$string['notvisiblestudent'] = 'Für Studierende nicht sichtbar';
+$string['notvisiblestudent'] = 'Für Teilnehmer/innen nicht sichtbar';
 $string['hidestudents'] = 'Kurs-Downloads für Personen ohne Verwaltungsberechtigung verbergen';
 $string['savesettings'] = 'Einstellungen speichern';
-$string['hiddenforstudents'] = 'Downloads sind für Dich in diesem Kurs nicht verfügbar.';
+$string['hiddenforstudents'] = 'Downloads sind für Sie in diesem Kurs nicht verfügbar.';
 $string['settingssaved'] = 'Einstellungen gespeichert';
 $string['extensionsformat'] = 'Dateiendungen durch Kommas trennen, zum Beispiel pdf,jpg,h5p. Die Blacklist hat Vorrang.';
 $string['invalidextensions'] = 'Bis zu 100 Dateiendungen durch Kommas getrennt eingeben, etwa pdf,jpg,h5p. Erlaubt sind Buchstaben, Ziffern, Unterstrich, Plus und Bindestrich, höchstens 32 Zeichen je Endung.';
@@ -79,16 +80,15 @@ $string['adminhelp'] = 'Hilfe zu Kurs-Downloads';
 $string['adminhelptopics'] = 'Hilfethemen';
 $string['adminhelpmore'] = 'Mehr dazu im Hilfepanel';
 $string['adminhelp_overview'] = 'Kursmaterialien finden';
-$string['adminhelp_overview_article'] = '<p>Kurs-Downloads sammelt unterstützte Kursmaterialien, auf die Du zugreifen darfst. Unter Dateien filtern kannst Du Dateiquelle, Dateityp und Kursabschnitte kombinieren. Eine leere Liste kann bedeuten, dass Filter oder Kursvorgaben die vorhandenen Materialien ausschließen.</p><p>Private Aufgabenabgaben, interne Fragendateien und nicht unterstützte Dateibereiche gehören nicht zu dieser Übersicht. Die ursprüngliche Aktivität bleibt der maßgebliche Ort für ihre Inhalte.</p><p>Bei installiertem PDF Workspace werden registrierte Original-PDFs angezeigt, wenn Du die Aktivität sehen und das Original herunterladen darfst. Das Original muss für Teilnehmende freigegeben sein oder Deine Rolle benötigt die Berechtigung zum Originaldownload. Diese Prüfung gilt auch für direkte Dateilinks und beide ZIP-Downloadarten. Kommentardateien und erzeugte PDF-Exporte werden nicht übernommen. Die Auswahl für einen Workspace-Gesamtexport ist davon unabhängig.</p>';
+$string['adminhelp_overview_article'] = '<p>Kurs-Downloads sammelt unterstützte Kursmaterialien, auf die Sie zugreifen dürfen. Unter Dateien filtern können Sie Dateiquelle, Dateityp und Kursabschnitte kombinieren. Eine leere Liste kann bedeuten, dass Filter oder Kursvorgaben die vorhandenen Materialien ausschließen.</p><p>Private Aufgabenabgaben, interne Fragendateien und nicht unterstützte Dateibereiche gehören nicht zu dieser Übersicht. Die ursprüngliche Aktivität bleibt der maßgebliche Ort für ihre Inhalte.</p><p>Bei installiertem PDF Workspace werden registrierte Original-PDFs angezeigt, wenn Sie die Aktivität sehen und das Original herunterladen dürfen. Das Original muss für Teilnehmer/innen freigegeben sein oder Ihre Rolle benötigt die Berechtigung zum Originaldownload. Diese Prüfung gilt auch für direkte Dateilinks und beide ZIP-Downloadarten. Kommentardateien und erzeugte PDF-Exporte werden nicht übernommen. Die Auswahl für einen Workspace-Gesamtexport ist davon unabhängig.</p>';
 $string['adminhelp_downloads'] = 'Dateien auswählen und herunterladen';
 $string['adminhelp_downloads_article'] = '<p>Einzelne Dateien oder alle Dateien mit dem Kontrollkästchen im Tabellenkopf auswählen. Die Gesamtauswahl lässt sich mit der Tastatur bedienen und zeigt auch eine teilweise Auswahl an.</p><p>Die Schaltfläche Markierte Dateien als ZIP herunterladen zeigt die aktuelle Anzahl. Ein Filterwechsel hebt die Dateiauswahl auf. Die gewählten Dateien werden in einem ZIP-Archiv zusammengefasst. Gleiche Dateinamen erhalten eine Nummer. Ändern sich Zugriffsrechte oder Kursvorgaben vor dem Download, die Liste neu laden und erneut auswählen. Eine eigene Downloadberechtigung steuert die ZIP-Aktion.</p>';
 $string['adminhelp_visibility'] = 'Wer Kurs-Downloads nutzen kann';
-$string['adminhelp_visibility_article'] = '<p>Kurs-Downloads verwendet drei Berechtigungen: ansehen, herunterladen und verwalten. Das Verbergen gilt für alle Personen ohne Verwaltungsberechtigung, also auch für Lehrende ohne Bearbeitungsrecht, sofern deren Rolle nicht entsprechend erweitert wurde.</p><p>Die Verwaltungsberechtigung erlaubt Einstellungen und die Anzeige von Materialien außerhalb der gewählten Dateigruppen. Sie überschreibt keine Moodle-Aktivitäts-, Gruppen- oder Dateirechte. Das Symbol neben einer Datei kennzeichnet eine Einschränkung durch diese Kursvorgaben und ist keine Vorschau aller individuellen Teilnehmerrechte.</p>';
+$string['adminhelp_visibility_article'] = '<p>Kurs-Downloads verwendet drei Berechtigungen: ansehen, herunterladen und verwalten. Das Verbergen gilt für alle Personen ohne Verwaltungsberechtigung, also auch für Trainer/innen ohne Bearbeitungsrecht, sofern deren Rolle nicht entsprechend erweitert wurde.</p><p>Die Verwaltungsberechtigung erlaubt Einstellungen und die Anzeige von Materialien außerhalb der gewählten Dateigruppen. Sie überschreibt keine Moodle-Aktivitäts-, Gruppen- oder Dateirechte. Das Symbol neben einer Datei kennzeichnet eine Einschränkung durch diese Kursvorgaben und ist keine Vorschau aller individuellen Teilnehmerrechte.</p>';
 $string['adminhelp_filetypes'] = 'Dateigruppen festlegen';
 $string['adminhelp_filetypes_article'] = '<p>Die Website-Einstellung liefert Vorgaben für neue Kurskonfigurationen. Im Kurs können Verwaltungsberechtigte andere Gruppen unter Freigaben für Kursdownloads bearbeiten oder in den Einstellungen eines bestehenden Kurses festlegen. Das Speichern des Kursformulars ändert nur die Gruppen.</p><p>Ohne Auswahl gelten die aktuellen Website-Vorgaben. Andere umfasst MIME-Typen außerhalb der bekannten Gruppen, unabhängig von der aktuellen Gruppenauswahl. Ein normaler Seitenbesuch speichert keine Konfiguration.</p>';
 $string['adminhelp_exceptions'] = 'Whitelist und Blacklist';
 $string['adminhelp_exceptions_article'] = '<p>Dateiendungen ohne Platzhalter und mit Kommas eingeben, etwa <code>pdf,jpg,h5p</code>. Großbuchstaben und ein führender Punkt werden vereinheitlicht. Es zählt die letzte Endung: <code>archiv.tar.gz</code> hat die Endung <code>gz</code>.</p><p>Die Whitelist ergänzt passende Dateien auch bei ausgeschalteter Dateigruppe. Die Blacklist schließt eine Endung selbst dann aus, wenn die Gruppe erlaubt ist oder die Endung zugleich in der Whitelist steht. Diese Vorgaben gelten für Personen ohne Verwaltungsberechtigung und immer nur innerhalb ihrer Moodle-Zugriffsrechte.</p>';
-
 $string['section'] = 'Abschnitt';
 $string['sections'] = 'Abschnitte als separate Archive herunterladen';
 $string['coursewidefiles'] = 'Kursweite Dateien';
@@ -96,14 +96,13 @@ $string['sectionshint'] = 'Mehrere Abschnitte mit Strg/Cmd auswählen. Ohne Ausw
 $string['filtersections'] = 'Abschnitte filtern';
 $string['clearsections'] = 'Abschnittsfilter zurücksetzen';
 $string['downloadsections'] = 'Ausgewählte Abschnitte herunterladen';
-$string['nosectionselected'] = 'Wähle mindestens einen Abschnitt zum Herunterladen aus.';
-$string['invalidsections'] = 'Mindestens ein ausgewählter Abschnitt ist nicht mehr verfügbar. Lade die Seite neu und wähle erneut aus.';
+$string['nosectionselected'] = 'Wählen Sie mindestens einen Abschnitt zum Herunterladen aus.';
+$string['invalidsections'] = 'Mindestens ein ausgewählter Abschnitt ist nicht mehr verfügbar. Laden Sie die Seite neu und wählen Sie erneut aus.';
 $string['nosectionfiles'] = 'In den ausgewählten Abschnitten sind keine passenden erlaubten Dateien verfügbar.';
-$string['sections_help'] = 'Lädt alle passenden erlaubten Dateien aus der aktuellen Filterauswahl. Du erhältst ein ZIP je nichtleerem Abschnitt in einem gemeinsamen Download; die Dateihäkchen werden nicht verwendet.';
+$string['sections_help'] = 'Lädt alle passenden erlaubten Dateien aus der aktuellen Filterauswahl. Sie erhalten ein ZIP je nichtleerem Abschnitt in einem gemeinsamen Download; die Dateihäkchen werden nicht verwendet.';
 $string['adminhelp_sections'] = 'Abschnitte filtern und herunterladen';
-$string['adminhelp_sections_article'] = '<p>Im Bereich <strong>Dateien filtern</strong> kannst Du Dateiquelle, Dateityp und <strong>Dateien aus folgenden Kursabschnitten</strong> gemeinsam eingrenzen. Öffne die Abschnittsauswahl und aktiviere die gewünschten Einträge. Standard ist <strong>Alle Kursabschnitte</strong>. Änderungen aktualisieren die Liste sofort. Mit den Kreuzen an den aktiven Filtern entfernst Du einzelne Kriterien; <strong>Filter zurücksetzen</strong> entfernt alle Dateifilter und behält den Kurs bei. Falls die automatische Aktualisierung nicht verfügbar ist, verwende <strong>Filter anwenden</strong>.</p><p>Unter <strong>Abschnitte als separate Archive herunterladen</strong> siehst Du die Zahl der passenden, erlaubten Dateien und Abschnittspakete. <strong>Abschnitts-ZIPs herunterladen</strong> erstellt einen gemeinsamen Download mit einem eigenen ZIP pro nichtleerem Abschnitt. Die Dateihäkchen der Liste gehören zum separaten Datei-Download und werden hierfür nicht verwendet. Auch bei Alle Kursabschnitte wird derselbe Filterumfang verwendet.</p><p>Abschnittspakete berücksichtigen Deine aktuellen Moodle-Zugriffsrechte sowie erlaubte Dateigruppen, Whitelist und Blacklist. Das gilt auch für Verwaltungsberechtigte, deren Übersicht ausgeschlossene Dateien zusätzlich anzeigen kann. Die Paketvorschau zählt nur tatsächlich erlaubte Dateien. Ausgeblendete oder eingeschränkte Abschnitte werden nur angeboten, wenn Du darauf zugreifen darfst. Materialien ohne Abschnitt findest Du unter <strong>Kursweite Dateien</strong>.</p>';
-
-$string['downloadsintro'] = 'Finde Kursmaterialien und lade einzelne Dateien oder ganze Abschnittspakete herunter.';
+$string['adminhelp_sections_article'] = '<p>Im Bereich <strong>Dateien filtern</strong> können Sie Dateiquelle, Dateityp und <strong>Dateien aus folgenden Kursabschnitten</strong> gemeinsam eingrenzen. Öffnen Sie die Abschnittsauswahl und aktivieren Sie die gewünschten Einträge. Standard ist <strong>Alle Kursabschnitte</strong>. Änderungen aktualisieren die Liste sofort. Mit den Kreuzen an den aktiven Filtern entfernen Sie einzelne Kriterien; <strong>Filter zurücksetzen</strong> entfernt alle Dateifilter und behält den Kurs bei. Falls die automatische Aktualisierung nicht verfügbar ist, verwenden Sie <strong>Filter anwenden</strong>.</p><p>Unter <strong>Abschnitte als separate Archive herunterladen</strong> sehen Sie die Zahl der passenden, erlaubten Dateien und Abschnittspakete. <strong>Abschnitts-ZIPs herunterladen</strong> erstellt einen gemeinsamen Download mit einem eigenen ZIP pro nichtleerem Abschnitt. Die Dateihäkchen der Liste gehören zum separaten Datei-Download und werden hierfür nicht verwendet. Auch bei Alle Kursabschnitte wird derselbe Filterumfang verwendet.</p><p>Abschnittspakete berücksichtigen Ihre aktuellen Moodle-Zugriffsrechte sowie erlaubte Dateigruppen, Whitelist und Blacklist. Das gilt auch für Verwaltungsberechtigte, deren Übersicht ausgeschlossene Dateien zusätzlich anzeigen kann. Die Paketvorschau zählt nur tatsächlich erlaubte Dateien. Ausgeblendete oder eingeschränkte Abschnitte werden nur angeboten, wenn Sie darauf zugreifen dürfen. Materialien ohne Abschnitt finden Sie unter <strong>Kursweite Dateien</strong>.</p>';
+$string['downloadsintro'] = 'Finde Kursmaterialien und laden Sie einzelne Dateien oder ganze Abschnittspakete herunter.';
 $string['managesettings'] = 'Freigaben für Kursdownloads bearbeiten';
 $string['visibilityclosed'] = 'Downloads sind für Personen ohne Verwaltungsrecht ausgeblendet.';
 $string['visibilityopen'] = 'Downloads sind freigegeben. Datei- und Moodle-Zugriffsrechte gelten weiterhin.';
@@ -117,10 +116,10 @@ $string['applyfilters'] = 'Filter anwenden';
 $string['resetfilters'] = 'Filter zurücksetzen';
 $string['removefilter'] = 'Filter entfernen: {$a}';
 $string['filtersloading'] = 'Dateiliste wird aktualisiert. Downloads sind danach wieder verfügbar.';
-$string['filterserror'] = 'Die Filter konnten nicht angewendet werden. Die bisherige Liste bleibt sichtbar. Verwende Filter anwenden, um es erneut zu versuchen.';
+$string['filterserror'] = 'Die Filter konnten nicht angewendet werden. Die bisherige Liste bleibt sichtbar. Verwenden Sie Filter anwenden, um es erneut zu versuchen.';
 $string['filtersexplain'] = 'Die Filter gelten für die Dateiliste und beide Downloadarten.';
 $string['resultsummary'] = 'Dateien: {$a->files} · Kursbereiche: {$a->sections}';
-$string['filechoicehint'] = 'Markiere die gewünschten Dateien mit den Häkchen in der Liste.';
+$string['filechoicehint'] = 'Markieren Sie die gewünschten Dateien mit den Häkchen in der Liste.';
 $string['markedcount'] = 'Markierte Dateien: {$a}';
 $string['downloadmarkedcount'] = 'Markierte Dateien als ZIP herunterladen ({$a})';
 $string['downloadmarked'] = 'Markierte Dateien als ZIP herunterladen';
@@ -130,19 +129,15 @@ $string['sectionexportindependent'] = 'Die Dateihäkchen werden für diesen Down
 $string['exportsummary'] = 'Erlaubte Dateien: {$a->files} · Abschnittspakete: {$a->sections}';
 $string['downloadsectioncount'] = 'Abschnitts-ZIPs herunterladen ({$a})';
 $string['noexportmatches'] = 'Für diese Filter sind keine freigegebenen Abschnittspakete verfügbar.';
-
 $string['sourcecourse'] = 'Kursebene';
-
 $string['pdfworkspacehinttitle'] = 'PDFs gemeinsam bearbeiten:';
-$string['pdfworkspacehint'] = 'Mit dem optionalen PDF Workspace kannst Du mehrere PDFs in einer Aktivität sammeln, kommentieren und deren Originaldownload freigeben. Erlaubte Originale erscheinen automatisch auch hier.';
+$string['pdfworkspacehint'] = 'Mit dem optionalen PDF Workspace können Sie mehrere PDFs in einer Aktivität sammeln, kommentieren und deren Originaldownload freigeben. Erlaubte Originale erscheinen automatisch auch hier.';
 $string['pdfworkspacelink'] = 'Mehr zu PDF Workspace';
-
-$string['migrationlegacycode'] = 'Entferne den alten Codeordner local/coursefiles, ohne Course Files zu deinstallieren. Wiederhole danach die Installation von Kurs-Downloads.';
-$string['migrationforeignstate'] = 'Die alte Course-Files-Installation enthält unbekannte Daten. Bewahre Deine Sicherungen auf und kläre die Migration, bevor Du fortfährst.';
-$string['migrationschema'] = 'Die alte Course-Files-Einstellungstabelle hat eine nicht unterstützte Struktur. Bewahre Deine Sicherungen auf und kläre die Migration, bevor Du fortfährst.';
-$string['migrationconflict'] = 'Die Einstellungen von Course Files und Kurs-Downloads widersprechen sich. Alte Einstellungen wurden nicht entfernt. Löse den Konflikt und wiederhole die Installation.';
-$string['migrationpermissions'] = 'Die Rechteüberschreibungen von Course Files konnten nicht exakt übernommen werden. Bewahre Deine Sicherungen auf und kläre die Migration, bevor Du fortfährst.';
-
+$string['migrationlegacycode'] = 'Entfernen Sie den alten Codeordner local/coursefiles, ohne Course Files zu deinstallieren. Wiederholen Sie danach die Installation von Kurs-Downloads.';
+$string['migrationforeignstate'] = 'Die alte Course-Files-Installation enthält unbekannte Daten. Bewahren Sie Ihre Sicherungen auf und klären Sie die Migration, bevor Sie fortfahren.';
+$string['migrationschema'] = 'Die alte Course-Files-Einstellungstabelle hat eine nicht unterstützte Struktur. Bewahren Sie Ihre Sicherungen auf und klären Sie die Migration, bevor Sie fortfahren.';
+$string['migrationconflict'] = 'Die Einstellungen von Course Files und Kurs-Downloads widersprechen sich. Alte Einstellungen wurden nicht entfernt. Löse den Konflikt und wiederholen Sie die Installation.';
+$string['migrationpermissions'] = 'Die Rechteüberschreibungen von Course Files konnten nicht exakt übernommen werden. Bewahren Sie Ihre Sicherungen auf und klären Sie die Migration, bevor Sie fortfahren.';
 $string['searchbarfilters'] = 'Filtern';
 $string['searchbardisplay'] = 'Darstellung';
 $string['searchbarreset'] = 'Filter zurücksetzen';

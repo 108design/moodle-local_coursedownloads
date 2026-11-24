@@ -24,6 +24,7 @@
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 // SPDX-License-Identifier: GPL-3.0-or-later
+
 $string['coursedownloads:download'] = 'Download files';
 $string['coursedownloads:view'] = 'View files';
 $string['coursedownloads:manage'] = 'Manage course files settings';
@@ -35,7 +36,7 @@ $string['filetype:all'] = 'All file types';
 $string['filetype:archive'] = 'Archive';
 $string['filetype:audio'] = 'Audio';
 $string['filetype:document'] = 'Document';
-$string['filetype:hvp'] = 'H5P Archive';
+$string['filetype:hvp'] = 'H5P archive';
 $string['filetype:image'] = 'Image';
 $string['filetype:other'] = 'Other';
 $string['filetype:whitelist'] = 'Whitelisted';
@@ -50,19 +51,19 @@ $string['pluginname'] = 'Course Downloads';
 $string['privacy:metadata'] = 'The Course Downloads plugin only displays existing files.';
 $string['download'] = 'Download selected files';
 $string['allowedfiletypes'] = 'Allowed file types';
-$string['allowedfiletypes_desc'] = 'Default file groups for new course configurations. Existing course settings remain unchanged. An empty selection uses Documents, Images and Audio.';
+$string['allowedfiletypes_desc'] = 'Default file groups for new course configurations. Existing course settings remain unchanged. An empty selection uses documents, images and audio.';
 $string['allowedfiletypesnote'] = 'Course managers can override these defaults on the Course Downloads page.';
 $string['local_coursedownloads'] = 'Course Downloads settings';
 $string['allowedfiletypes_help'] = 'These groups apply to people without permission to manage Course Downloads. An empty selection uses the website defaults. Whitelisted extensions may add files; blacklisted extensions always exclude them. Native Moodle file permissions still apply.';
 $string['exception_lists'] = 'Exceptions';
-$string['whitelist_desc'] = 'Whitelist: additionally <strong class="text-success">allowed</strong> filename extensions';
-$string['blacklist_desc'] = 'Blacklist: <strong class="text-danger">excluded</strong> filename extensions';
+$string['whitelist_desc'] = 'Allowlist: additionally <strong class="text-success">allowed</strong> filename extensions';
+$string['blacklist_desc'] = 'Denylist: <strong class="text-danger">excluded</strong> filename extensions';
 $string['notvisiblestudent'] = 'Not visible to students';
 $string['hidestudents'] = 'Hide Course Downloads for people without management permission';
 $string['savesettings'] = 'Save settings';
 $string['hiddenforstudents'] = 'Downloads are not available to you in this course.';
 $string['settingssaved'] = 'Settings saved';
-$string['extensionsformat'] = 'Comma-separated extensions, for example pdf,jpg,h5p. The blacklist takes precedence.';
+$string['extensionsformat'] = 'Comma-separated extensions, for example pdf,jpg,h5p. The denylist takes precedence.';
 $string['invalidextensions'] = 'Enter up to 100 comma-separated filename extensions, such as pdf,jpg,h5p. Each extension may contain letters, numbers, underscores, plus signs or hyphens, up to 32 characters.';
 $string['invalidselection'] = 'Some selected files are no longer available. Reload the list and select the files again.';
 $string['archivefailed'] = 'The download archive could not be created. Please try again.';
@@ -70,13 +71,13 @@ $string['selectfile'] = 'Select {$a}';
 $string['selectall'] = 'Select all files';
 $string['restrictedbypolicy'] = 'Excluded for people without management permission by the Course Downloads settings. Individual Moodle access rules also apply.';
 $string['visibility'] = 'Course download access';
-$string['visibility_help'] = 'Hiding Downloads blocks both the file list and ZIP downloads for everyone without Course Downloads management permission.';
+$string['visibility_help'] = 'Hiding downloads blocks both the file list and ZIP downloads for everyone without Course Downloads management permission.';
 $string['exceptions'] = 'Extension exceptions';
-$string['exceptions_help'] = 'The whitelist adds extensions to the allowed groups. The blacklist always takes precedence. Neither list grants access to protected activity or participant files.';
+$string['exceptions_help'] = 'The allowlist adds extensions to the allowed groups. The denylist always takes precedence. Neither list grants access to protected activity or participant files.';
 $string['filetypes'] = 'Allowed file groups';
 $string['filetypes_help'] = 'Choose the default file groups. Individual course settings can override the website defaults.';
 $string['adminhelp'] = 'Course Downloads help';
-$string['adminhelptopics'] = 'Help Topics';
+$string['adminhelptopics'] = 'Help topics';
 $string['adminhelpmore'] = 'More in the help panel';
 $string['adminhelp_overview'] = 'Finding course materials';
 $string['adminhelp_overview_article'] = '<p>Course Downloads gathers supported course materials that you are allowed to access. Under Filter files, combine file source, file type and course sections. An empty list can mean that the active filters or course settings exclude the available materials.</p><p>Private assignment submissions, internal question files and unsupported file areas are not included. This overview does not replace the original activity.</p><p>When PDF Workspace is installed, registered original PDFs are included if you can view the activity and download the original. Original downloads must be enabled for participants or your role must have the original-download permission. Direct file links and both ZIP download types check this permission. Comment attachments and generated PDF exports are excluded. Selection for a whole-workspace export is independent.</p>';
@@ -86,9 +87,8 @@ $string['adminhelp_visibility'] = 'Who can use Course Downloads';
 $string['adminhelp_visibility_article'] = '<p>Course Downloads uses three permissions: view, download and manage. The hide setting applies to everyone without the manage permission, including non-editing teachers unless their role is configured otherwise.</p><p>Management permission permits configuration and viewing materials outside the selected type groups. It does not override native Moodle activity, group or file permissions. The policy symbol beside a file indicates a restriction from these course settings, not a preview of every participant’s individual access.</p>';
 $string['adminhelp_filetypes'] = 'Choosing file groups';
 $string['adminhelp_filetypes_article'] = '<p>The website setting provides defaults for new course configurations. Course managers can choose different groups under Manage course download permissions or in the existing course’s settings. Saving the course form changes only the selected groups.</p><p>An empty selection returns to the current website defaults. Other contains MIME types outside the known groups; it is independent of which groups are selected. A normal visit never saves a configuration.</p>';
-$string['adminhelp_exceptions'] = 'Whitelist and blacklist';
-$string['adminhelp_exceptions_article'] = '<p>Enter extensions without wildcards, separated by commas, for example <code>pdf,jpg,h5p</code>. Capital letters and a leading dot are normalised. The final extension is used, so <code>archive.tar.gz</code> has extension <code>gz</code>.</p><p>The whitelist adds matching files even when their group is disabled. The blacklist excludes a matching extension even when its group is allowed or it is also whitelisted. These rules apply to people without management permission and always remain inside their native Moodle access rights.</p>';
-
+$string['adminhelp_exceptions'] = 'Allowlist and denylist';
+$string['adminhelp_exceptions_article'] = '<p>Enter extensions without wildcards, separated by commas, for example <code>pdf,jpg,h5p</code>. Capital letters and a leading dot are normalised. The final extension is used, so <code>archive.tar.gz</code> has extension <code>gz</code>.</p><p>The allowlist adds matching files even when their group is disabled. The denylist excludes a matching extension even when its group is allowed or it is also whitelisted. These rules apply to people without management permission and always remain inside their native Moodle access rights.</p>';
 $string['section'] = 'Section';
 $string['sections'] = 'Download sections as separate archives';
 $string['coursewidefiles'] = 'Course-wide files';
@@ -101,8 +101,7 @@ $string['invalidsections'] = 'At least one selected section is no longer availab
 $string['nosectionfiles'] = 'No matching permitted files are available in the selected sections.';
 $string['sections_help'] = 'Downloads all matching permitted files from the current filters as one ZIP per nonempty section in one download. File checkboxes are not used.';
 $string['adminhelp_sections'] = 'Filter and download sections';
-$string['adminhelp_sections_article'] = '<p>Under <strong>Filter files</strong>, combine File source, File type and <strong>Files from these course sections</strong>. Open the section selector and tick the entries you want. The default is <strong>All course sections</strong>. Changes update the list immediately. Use the crosses beside active filters to remove individual criteria; <strong>Reset filters</strong> clears all file filters and keeps the current course. If automatic updates are unavailable, use <strong>Apply filters</strong>.</p><p>Under <strong>Download sections as separate archives</strong>, the preview counts matching permitted files and section packages. <strong>Download section ZIPs</strong> provides one download containing a separate ZIP for each nonempty section. File checkboxes belong to the separate file download and are not used here. All course sections uses the same current filter scope.</p><p>Section packages follow your current Moodle access rights and the allowed file groups, whitelist and blacklist, including for managers whose overview may also display excluded files. The package preview counts only permitted files. Hidden or restricted sections are only offered when you can access them. Material without a section appears under <strong>Course-wide files</strong>.</p>';
-
+$string['adminhelp_sections_article'] = '<p>Under <strong>Filter files</strong>, combine File source, File type and <strong>Files from these course sections</strong>. Open the section selector and tick the entries you want. The default is <strong>All course sections</strong>. Changes update the list immediately. Use the crosses beside active filters to remove individual criteria; <strong>Reset filters</strong> clears all file filters and keeps the current course. If automatic updates are unavailable, use <strong>Apply filters</strong>.</p><p>Under <strong>Download sections as separate archives</strong>, the preview counts matching permitted files and section packages. <strong>Download section ZIPs</strong> provides one download containing a separate ZIP for each nonempty section. File checkboxes belong to the separate file download and are not used here. All course sections uses the same current filter scope.</p><p>Section packages follow your current Moodle access rights and the allowed file groups, allowlist and denylist, including for managers whose overview may also display excluded files. The package preview counts only permitted files. Hidden or restricted sections are only offered when you can access them. Material without a section appears under <strong>Course-wide files</strong>.</p>';
 $string['downloadsintro'] = 'Find course materials and download individual files or complete section packages.';
 $string['managesettings'] = 'Manage course download permissions';
 $string['visibilityclosed'] = 'Downloads are hidden from people without management permission.';
@@ -130,22 +129,18 @@ $string['sectionexportindependent'] = 'The file checkboxes are not used for this
 $string['exportsummary'] = 'Permitted files: {$a->files} · Section packages: {$a->sections}';
 $string['downloadsectioncount'] = 'Download section ZIPs ({$a})';
 $string['noexportmatches'] = 'No permitted section packages are available for these filters.';
-
 $string['sourcecourse'] = 'Course level';
-
 $string['pdfworkspacehinttitle'] = 'Work together on PDFs:';
 $string['pdfworkspacehint'] = 'The optional PDF Workspace lets you collect and annotate multiple PDFs in one activity and control downloads of the originals. Permitted originals also appear here automatically.';
 $string['pdfworkspacelink'] = 'More about PDF Workspace';
-
 $string['migrationlegacycode'] = 'Remove the old local/coursefiles code folder without uninstalling Course Files, then retry the Course Downloads installation.';
 $string['migrationforeignstate'] = 'The old Course Files installation contains unrecognised data. Keep your backups and resolve the migration before continuing.';
 $string['migrationschema'] = 'The old Course Files settings table has an unsupported structure. Keep your backups and resolve the migration before continuing.';
 $string['migrationconflict'] = 'Course Files and Course Downloads settings conflict. No legacy settings have been removed. Resolve the conflict and retry the installation.';
 $string['migrationpermissions'] = 'Course Files permission overrides could not be preserved exactly. Keep your backups and resolve the migration before continuing.';
-
 $string['searchbarfilters'] = 'Filter';
 $string['searchbardisplay'] = 'Display';
-$string['searchbarreset'] = 'Reset Filters';
-$string['searchbarremove'] = 'Remove Filter: {$a}';
+$string['searchbarreset'] = 'Reset filters';
+$string['searchbarremove'] = 'Remove filter: {$a}';
 $string['searchbarloading'] = 'Loading results …';
 $string['searchbarerror'] = 'The results could not be updated. Please submit the search again.';
