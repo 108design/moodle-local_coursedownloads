@@ -162,3 +162,5 @@ GNU General Public License v3 or later; see [LICENSE](LICENSE). The original aut
 upstream attribution remain applicable. This software is provided without warranty under the GPL.
 
 Available free of charge under the terms of the applicable license.
+
+The 108design name and logo are subject to the [name and logo notice](TRADEMARKS.md).
